@@ -1,0 +1,21 @@
+{
+    "name": "Hello WOrld!",
+    "description": "My first Chrome App.",
+    "version": "0.1",
+    "manifest_version": 2,
+    "permissions" : ["storage", "webview", "https://api.stackexchange.com/js/2.0/all.js"],
+    "webview" : {
+        "partitions": [
+            {
+                "name" : "static",
+                "accessible_resources": ["*.html", "*.png", "*.js"]
+            }
+        ]
+    },
+    "app": {
+        "background": {
+            "scripts": ["background.js", "controller.js"]
+        }
+    },
+    "icons": { "16": "calculator-16.png", "128": "calculator-128.png" }
+}
