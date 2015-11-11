@@ -1,0 +1,16 @@
+body{
+    background-color: lightblue;
+}
+.input-text-area{
+    position: absolute;
+    top: 10px;
+    left: 20px;
+}
+.google-search-area{
+}
+#google-search{
+    width: auto;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}

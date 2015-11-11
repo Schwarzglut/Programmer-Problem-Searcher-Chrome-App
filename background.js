@@ -18,21 +18,13 @@ chrome.runtime.onSuspend.addListener(function(){
 });
 
 window.onload = function(){
-    document.querySelector("#enter-text").addEventListener("click",
+    var inputText = document.querySelector("#input-text");
+    var inputURL = document.querySelector("#google-search");
+    
+    inputText.addEventListener("keypress",
         function(){
-            var inputText = document.querySelector("#input-text");
-            var displayText = document.querySelector("#display-text");
-            var inputURL = document.querySelector("#google-search");
-            inputURL.src = "https://www." + inputText.value + ".com/";
+            if(event.keyCode == 13){
+                inputURL.src = "https://www." + inputText.value + ".com/";
+            }
     });
 };
-
-var xhr = new XMLHttpRequest();
-xhr.open('GET', 'https://api.stackexchange.com/js/2.0/all.js', true);
-xhr.responseType = 'blob';
-xhr.onload = function(e){
-    var stackExchangeAPI = document.createElement('script');
-    stackExchangeAPI.src = window.URL.createObjectURL(this.response);
-    document.body.appendChild(stackExchangeAPI);
-}
-xhr.send();

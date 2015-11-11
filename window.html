@@ -2,18 +2,17 @@
 <html>
     <head>
         <script src="background.js"></script>
-        <webview id="google-search" src="http://www.google.com/" style="width:1600px; height:800px" partition="static"></webview>
+        <link rel="stylesheet" type="text/css" href="stylesheet.css">
     </head>
     <body>
-        <div> Hello, World!</div>
         <p>
-            <label for="input-text">Input Text:</label>
-            <input type="text" id="input-text">
-        </p><p>
-            <label for="display-text">Display Text:</label>
-            <input type="text" id="display-text" readonly>
-        </p><p>
-            <button id="enter-text">Enter Text</button>
+            <div class=".input-text-area">
+                <label for="input-text"><b>Search: </b></label>
+                <input type="text" id="input-text">
+            </div>
+            <div class=".google-search-area">
+                <webview id="google-search" src="http://www.google.com/" partition="static"></webview>
+            </div>
         </p>
     </body>
 </html>
