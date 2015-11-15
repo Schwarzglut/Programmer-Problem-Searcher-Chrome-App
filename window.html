@@ -2,6 +2,7 @@
 <html>
     <head>
         <script src="background.js"></script>
+        <script id="stackexchange-api"></script>
         <link rel="stylesheet" type="text/css" href="stylesheet.css">
     </head>
     <body>
@@ -10,8 +11,11 @@
                 <label for="input-text"><b>Search: </b></label>
                 <input type="text" id="input-text">
             </div>
+            <div>
+                <img id="image-test">
+            </div>
             <div class=".google-search-area">
-                <webview id="google-search" src="http://www.google.com/" partition="static"></webview>
+                <!--<webview id="google-search" src="http://www.google.com/" partition="static"></webview>-->
             </div>
         </p>
     </body>
