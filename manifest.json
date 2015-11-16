@@ -3,7 +3,7 @@
     "description": "A chrome app for programmers to enter a search question, which is then queried with informative programming sites such as stackoverflow.com and compiles the best and most relevant answers.",
     "version": "0.1",
     "manifest_version": 2,
-    "permissions" : ["storage", "webview", "https://api.stackexchange.com/js/2.0/all.js"],
+    "permissions" : ["storage", "webview", "https://api.stackexchange.com/js/2.0/all.js", "fileSystem"],
     "webview" : {
         "partitions": [
             {
