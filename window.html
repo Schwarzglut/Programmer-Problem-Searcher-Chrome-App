@@ -1,11 +1,16 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <script src="jquery-2.1.4.js" type="text/javascript"></script>
         <script src="background.js"></script>
         <script id="stackexchange-api"></script>
         <link rel="stylesheet" type="text/css" href="stylesheet.css">
     </head>
     <body>
+        <p id="test-p">
+            My name is Joseph and I'm writing a paragraph to test make disappear with jquery.
+        </p>
+        <button id="jQ-button-test"> Test Button </button>
         <p>
             <div class=".input-text-area">
                 <label for="input-text"><b>Search: </b></label>
@@ -15,7 +20,7 @@
                 <img id="image-test">
             </div>
             <div class=".google-search-area">
-                <!--<webview id="google-search" src="http://www.google.com/" partition="static"></webview>-->
+                <webview id="google-search" src="http://www.youtube.com/" partition="static"></webview>
             </div>
         </p>
     </body>

@@ -29,15 +29,10 @@ window.onload = function(){
     });
 };
 
-var xhr = new XMLHttpRequest();
-xhr.open('GET', 'https://sstatic.net/apiv2/js/all.js', true);
-xhr.setRequestHeader('Access-Control-Allow-Origin', '*');
-xhr.setRequestHeader( 'Content-Type', 'application/json' );
-xhr.responseType = 'blob';
-xhr.onload = function(e) {
-  var img = document.getElementById("stackexchange-api");
-  img.src = window.URL.createObjectURL(this.response);
-  //document.body.appendChild(img);
-};
-
-xhr.send();
+$( document ).ready(function() {
+    $("#jQ-button-test").click(function(){
+        $.ajax({url: "http://www.google.com", success: function(result){
+            $("#google-search").src(result);
+        }});
+    });
+});
