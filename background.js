@@ -29,10 +29,64 @@ window.onload = function(){
     });
 };
 
-$( document ).ready(function() {
+/*$( document ).ready(function() {
     $("#jQ-button-test").click(function(){
-        $.ajax({url: "http://www.google.com", success: function(result){
+        alert("ALERT TEST");
+        $.ajax({url: "http://www.google.com", 
+                success: function(result){
             $("#google-search").src(result);
-        }});
+        },
+               error: function(XMLHttpRequest, textStatus, errorThrown){
+                   alert("ERROR: " + textStatus + " (" + errorThrown + ")");
+               }});
+    });
+});*/
+
+_createObjectURL = function(blob){
+    var objURL = URL.createObjectURL(blob);
+    this.objectURLs = this.objectURLs || [];
+    this.objectURLs.push(objURL);
+    return objURL;
+}
+_clearObjectURL = function(){
+    if(this.objectURLs){
+        this.objectURLs.forEach(function(objURL){
+           URL.revokeObjectURL(objURL); 
+        });
+        this.objectURLs = null;
+    }
+}
+_requestRemoteImageAndAppend = function(imageUrl, element) {
+  var xhr = new XMLHttpRequest();
+  xhr.open('GET', imageUrl);
+  xhr.responseType = 'blob';
+  xhr.onload = function() {
+    var img = document.createElement('img');
+    img.setAttribute('data-src', imageUrl);
+    img.className = 'icon';
+    var objURL = this._createObjectURL(xhr.response);
+    img.setAttribute('src', objURL);
+    element.appendChild(img);
+  }.bind(this);
+  xhr.send();
+};
+_parseForImageURLs = function () {
+  // remove old blobs to avoid memory leak:
+  this._clearObjectURL();
+  var links = this.document.querySelectorAll('a[data-src]:not(.thumbnail)');
+  var re = /\.(png|jpg|jpeg|svg|gif)$/;
+  for (var i = 0; i<links.length; i++) {
+    var url = links[i].getAttribute('data-src');
+    if (re.test(url)) {
+      links[i].classList.add('thumbnail');
+      this._requestRemoteImageAndAppend(url, links[i]);
+    }
+  }
+};
+
+$(document).ready(function(){
+    $("#jQ-button-test").click(function(){
+        alert("ALeart");
+        _parseForImageURLs;
     });
 });
